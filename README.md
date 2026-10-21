@@ -1,4 +1,4 @@
-# S5P and GRASP Synergy Aerosol Optical Depth (AOD) Validation Pipeline
+# S5P PAL and GRASP Synergy Aerosol Optical Depth (AOD) Comparison Pipeline
 
 [![PANORAMA Project](https://img.shields.io/badge/PANORAMA-EU%20Grant%20101182795-blue.svg)](https://cordis.europa.eu/project/id/101182795)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
