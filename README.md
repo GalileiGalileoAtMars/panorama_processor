@@ -40,6 +40,8 @@ pyproj>=3.3.0
 skill-metrics>=0.0.4
 harp>=1.15.0
 openpyxl>=3.0.10
+alive-progress>=3.3.0
+seaborn>= 0.13.2
 ```
 
 ---
@@ -97,6 +99,54 @@ python src/main.py --interactive
 ```
 
 ---
+### Run AERONET Comparison
+Comparison with ground-based AERONET measurements can be done for both S5P and GRASP Synergy (PANORAMA) data, using separate tools.
+
+#### Collocation
+
+At first, collocation is to be performed between AERONET measurements and the other data source. `synergy_aeronet.py` is used for collocating GRASP Synergy (PANORAMA) products to AERONET, while `s5p_aeronet.py` is user for collocating S5P products and AERONET measurements.
+
+Collocating thresholds (spatial & temporal) can be selected using  the `--spatial-threshold` (kilometers) and `--temporal-threshold` (minutes) parameters. Both scripts require the user to provide access to a CSV list of AERONET stations and a repository of AERONET data, but the required data can also be automatically downloaded using the `--download-aeronet` flag. Existing AERONET files are only overwritten when using the `--redownload-aeronet`.
+
+As an example of how to run the collocation scripts using different thresholds (5, 10, 50, 100, 200 km & 15, 30 and 60 minutes), the `run_synergy_aeronet.cmd` and `run_s5p_aeronet.cmd` Windows Batch files are provided.
+
+The collocation scripts compute the mean values of the data products where AERONET and GRASP/S5P data is collocated and save them to a JSON file.
+
+Example:
+
+```bash
+python synergy_aeronet.py \
+    --satellite-folder "data/grasp_synergy" \
+    --aeronet-folder "data/aeronet" \
+    --aeronet-stations-csv "data/aeronet_locations.csv" \
+    --spatial-threshold 50 \
+    --temporal-threshold 15 \
+    "results/50km-15min.json"
+```
+
+#### Statistical analysis
+
+The statistical analysis is performed on the JSON file produced by the collocation algorithm. Both graphical plots as well as JSON files containing the results of the computations are produced by the `statistical_analysis.py` script.
+
+To see an example of how to run this script, `run_statistical_analysis.cmd` is delivered analogous to the collocation step. The statistical analysis script only needs to be provided with a JSON file produced by the collocation script and output paths have to be provided to the folder where to place the graphical plots (`--plots-folder`) and to the folder where the statistics JSON files will be saved (`--statistics-folder`).
+
+Example:
+
+```bash
+python statistical_analysis.py --plots-folder "statistical_results/plots" --statistics-folder "statistical_results/json" "results/50km-15min.json"
+```
+
+#### Collocation threshold sensitivity studies
+
+A third script is provided in order to analyze an entire set of JSON files produced using different collocation thresholds, so as to provide an insight into the sensitivity of the statistical results to the thresholds used.
+
+`plot_heatmaps.py` needs to be provided with a path to a folder containing the entire set of JSON files (file search will be performed recursively in subfolders as well). The resulting heatmap plots will be placed in a `heatmaps` folder at the same path.
+
+Example:
+
+```bash
+python plot_heatmaps.py "results"
+```
 
 ## 5. Expected Results & Quicklooks
 
