@@ -121,7 +121,7 @@ cd ..
 ```
 *(The portal script automatically creates `synergy-panorama/` inside `./data/` and preserves the `<product>/<version>/<YYYY>/<MM>/<DD>/` hierarchy.)*
 
-### 2.2 Download Matching Sentinel-5P PAL Files
+### 2.2 Download Matching Sentinel-5P PAL Files (Workflow A)
 Once GRASP Synergy files are stored locally, run `src/download_s5p_pal.py`. It scans `./data/synergy-panorama`, extracts observation dates and bounding boxes, queries the [Copernicus S5P-PAL STAC API](https://data-portal.s5p-pal.com/), and downloads matching `L2__AER_OT` orbits into `./data/s5p_pal/YYYY/MM/DD/`:
 
 ```bash
