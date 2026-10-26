@@ -6,7 +6,7 @@
 [![License: Apache 2.0](https://img.shields.io/badge/Code_License-Apache_2.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Docs & Data: CC BY 4.0](https://img.shields.io/badge/Docs_%26_Outputs-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-`panorama_processor` is a standalone, modular Python validation suite developed within the EU-funded **PANORAMA** project for spaceborne Aerosol Optical Depth (AOD / AOT) intercomparison and ground-truth evaluation. 
+`panorama_processor` is a standalone, modular Python validation suite developed within the EU-funded **PANORAMA** project for spaceborne Aerosol Optical Properties products intercomparison and ground-truth evaluation. 
 
 The suite supports **two independent analytical workflows** operating on a shared local data directory:
 1. **Workflow A — Satellite-to-Satellite Intercomparison:** Automated data acquisition, user-configurable spatial rebinning (`0.05°`, `0.1°`, `0.2°`, or custom grids), pixel-level co-location, and cross-version (`v001`, `v002`, `v003+`) statistical evaluation between **Sentinel-5P (S5P) TROPOMI Level-2 PAL AOT (`L2__AER_OT`)** and **GRASP Synergy (PANORAMA)** retrievals.
