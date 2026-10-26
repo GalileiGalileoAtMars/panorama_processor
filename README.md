@@ -2,7 +2,7 @@
 
 [![PANORAMA Project](https://img.shields.io/badge/PANORAMA-EU%20Grant%20101182795-blue.svg)](https://cordis.europa.eu/project/id/101182795)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+#[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)>
 
 A standalone, installable Python pipeline for automated satellite data acquisition, spatial rebinning, pixel-level co-location, and bulk statistical validation between **Sentinel-5P (S5P) TROPOMI Level-2 Aerosol Optical Depth (PAL AOT)** products and **GRASP Synergy (PANORAMA)** aerosol datasets across versions (`v001`, `v002`, `v003`) and multiple spatial resolutions (`0.05°`, `0.1°`, `0.2°`).
 
